@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 起名 · 智能姓名方案</title>
+  <meta name="description" content="多模型智能起名工具（Kimi / 豆包 / DeepSeek / 通义千问），流式输出名字与寓意" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <h1>AI 智能起名</h1>
+      <p class="subtitle">输入期望，AI 为你生成 3 组名字方案，附五行与寓意解析</p>
+    </header>
+
+    <section class="card form-card">
+      <form id="name-form">
+        <label class="field">
+          <span>选择模型</span>
+          <select id="provider" name="provider">
+            <option value="deepseek" selected>DeepSeek（deepseek-chat）</option>
+            <option value="kimi">Kimi（kimi-k3.1-pro）</option>
+            <option value="doubao">豆包（doubao-seed-2-1-pro）</option>
+            <option value="qwen">通义千问（qwen-plus）</option>
+          </select>
+        </label>
+
+        <div class="grid">
+          <label class="field">
+            <span>姓氏（可选）</span>
+            <input type="text" id="surname" name="surname" maxlength="4" placeholder="如：李" />
+          </label>
+
+          <label class="field">
+            <span>性别 / 类型</span>
+            <select id="gender" name="gender">
+              <option value="">不限</option>
+              <option value="男孩">男孩</option>
+              <option value="女孩">女孩</option>
+              <option value="中性">中性 / 通用</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>风格偏好（可选）</span>
+          <select id="style" name="style">
+            <option value="">不限</option>
+            <option value="古典文雅">古典文雅</option>
+            <option value="现代简约">现代简约</option>
+            <option value="自然意象">自然意象（山水草木）</option>
+            <option value="诗意唯美">诗意唯美</option>
+            <option value="大气稳重">大气稳重</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>期望寓意 / 补充需求</span>
+          <textarea id="requirements" name="requirements" rows="3"
+            placeholder="如：希望孩子平安健康、前程似锦；融入父母名字中的某字；五行缺火想补火……"></textarea>
+        </label>
+
+        <label class="field">
+          <span>希望融入的关键字（可选，逗号分隔）</span>
+          <input type="text" id="keywords" name="keywords" maxlength="30" placeholder="如：梓,轩,语" />
+        </label>
+
+        <button type="submit" class="btn" id="submit-btn">开始起名</button>
+      </form>
+    </section>
+
+    <section class="card output-card" id="output-card" hidden>
+      <div class="output-head">
+        <h2>起名结果</h2>
+        <div class="status" id="status">正在生成…</div>
+      </div>
+      <div id="result" class="result" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

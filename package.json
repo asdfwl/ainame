@@ -1,0 +1,20 @@
+{
+  "name": "ainame-task",
+  "version": "1.0.0",
+  "description": "AI 起名 · Vercel Node 网页应用（流式输出，Supabase 持久化）",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "devDependencies": {
+    "vercel": "^37.0.0"
+  }
+}
